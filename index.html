@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=yes, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Kreator dyplomów | II LO</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="app-navigation">
+	<nav>
+		<a href="javascript:void(0)" data-tab-label="1">Nagrody</a>
+		<a href="javascript:void(0)" data-tab-label="2">Listy gratulacyjne</a>
+		<a href="javascript:void(0)" data-tab-label="3">Listy pochwalne</a>
+		<a href="javascript:void(0)" class="active-header-link" id="start-link" data-tab-label="0">Start</a>
+	</nav>
+</header>
+<main>
+	<div class="start" data-tab="0">
+		<h1>Rozpocznij pracę z kreatorem dyplomów.</h1>
+		<p>Wybierz typ dyplomu, który chcesz utworzyć z górnego menu.</p>
+		<div class="quick-start">
+			<button id="new-project">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 -960 960 960">
+					<path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/>
+				</svg>
+				Nowy projekt
+			</button>
+			<button id="load-csv">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 -960 960 960">
+					<path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640H447l-80-80H160v480l96-320h684L837-217q-8 26-29.5 41.5T760-160H160Zm84-80h516l72-240H316l-72 240Zm0 0 72-240-72 240Zm-84-400v-80 80Z"/>
+				</svg>
+				Załaduj plik CSV
+			</button>
+			<a class="button" id="get-help" href="./guide.pdf">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 -960 960 960">
+					<path d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+				</svg>
+				Uzyskaj pomoc
+			</a>
+		</div>
+
+		<div class="input-group">
+			<label for="print_date">Data wystawienia dyplomów (potrzebne do wydruku)</label>
+			<input type="date" name="print_date" id="print_date" value="2024-06-21">
+		</div>
+
+		<small>🄯 Copyleft mSamorząd 2024<br>
+		<a href="https://github.com/piotrbadelek/dyplomy_csv">Kod Źródłowy</a> | <a href="https://github.com/piotrbadelek/dyplomy_csv/LICENCE">Licencja</a></small>
+	</div>
+	<div class="tab" data-tab="1">
+		<button id="new-reward">Nowa nagroda</button>
+		<button id="download-reward-csv">Pobierz plik CSV</button>
+		<button id="print-rewards">Wydrukuj nagrody</button>
+		<p class="list-header">Lista nagród</p>
+		<ul id="reward_list"></ul>
+		<dialog id="reward-dialog">
+			<div class="dialog_container">
+				<div class="dialog_inputs">
+					<input type="hidden" name="reward_id" id="reward_id" value="none">
+
+					<div class="input-group">
+						<label for="reward_name">Imię i nazwisko (w mianowniku)</label>
+						<span>dla</span>
+						<input type="text" name="reward_name" id="reward_name" placeholder="Jana Nowaka">
+					</div>
+					<div class="input-group">
+						<label for="reward_pronoun">Zaimek</label>
+						<select name="reward_pronoun" id="reward_pronoun">
+							<option value="ucznia">Ucznia</option>
+							<option value="uczennicy">Uczennicy</option>
+						</select>
+					</div>
+					<div class="input-group">
+						<label for="reward_class">Klasa</label>
+						<input type="text" name="reward_class" id="reward_class"
+							   placeholder="2 informatyczno-matematyczna">
+					</div>
+					<div class="input-group">
+						<label for="reward_grade">Wyniki w nauce</label>
+						<select name="reward_grade" id="reward_grade">
+							<option value="6" selected>Celujące</option>
+							<option value="5">Bardzo dobre</option>
+							<option value="4">Dobre</option>
+							<option value="0">Dostateczne lub gorsze</option>
+						</select>
+					</div>
+					<div class="input-group">
+						<label for="reward_behaviour">Zachowanie</label>
+						<select name="reward_behaviour" id="reward_behaviour">
+							<option value="6" selected>Wzorowe</option>
+							<option value="5">Bardzo dobre</option>
+							<option value="0">Dobre lub gorsze</option>
+						</select>
+					</div>
+					<div class="input-group">
+						<label for="reward_work">Praca na rzecz szkoły bądź klasy?</label>
+						<select name="reward_work" id="reward_work">
+							<option value="both">Na rzecz szkoły i klasy</option>
+							<option value="school">Na rzecz szkoły</option>
+							<option value="class">Na rzecz klasy</option>
+							<option value="none" selected>Nie</option>
+						</select>
+					</div>
+					<div class="input-group">
+						<label for="reward_bearer">Poczet sztandarowy?</label>
+						<select name="reward_bearer" id="reward_bearer">
+							<option value="yes">Tak</option>
+							<option value="none" selected>Nie</option>
+						</select>
+					</div>
+					<div class="input-group">
+						<label for="reward_promotion">Udział w promocji szkoły?</label>
+						<select name="reward_promotion" id="reward_promotion">
+							<option value="yes">Tak</option>
+							<option value="none" selected>Nie</option>
+						</select>
+					</div>
+					<div class="input-group">
+						<label for="reward_contests">Udział w olimpiadach bądź konkursach?</label>
+						<select name="reward_contests" id="reward_contests">
+							<option value="both">Olimpiady i konkursy</option>
+							<option value="olimpiad">Olimpiady</option>
+							<option value="contests">Konkursy</option>
+							<option value="none" selected>Nie</option>
+						</select>
+					</div>
+
+					<button id="reward-dialog-cancel">Anuluj</button>
+					<button id="reward-dialog-add">Dodaj</button>
+				</div>
+
+				<div class="dialog_preview">
+					<!-- Rendered with JavaScript -->
+				</div>
+			</div>
+		</dialog>
+	</div>
+	<div class="tab" data-tab="2">
+		<button id="new-congratulations">Nowy list gratulacyjny</button>
+		<button id="download-congratulations-csv">Pobierz plik CSV</button>
+		<button id="print-congratulations">Wydrukuj listy gratulacyjne</button>
+		<p class="list-header">Lista listów gratulacyjnych</p>
+		<ul id="congratulations_list"></ul>
+		<dialog id="congratulations-dialog">
+			<div class="dialog_container">
+				<div class="dialog_inputs">
+					<input type="hidden" name="congratulations_id" id="congratulations_id" value="none">
+
+					<div class="input-group">
+						<label for="congratulations_student_name">Imię ucznia</label>
+						<span>przez syna/córkę</span>
+						<input type="text" name="congratulations_student_name" id="congratulations_student_name" placeholder="Jana">
+					</div>
+					<div class="input-group">
+						<label for="congratulations_student_pronoun">Zaimek ucznia</label>
+						<select name="congratulations_student_pronoun" id="congratulations_student_pronoun">
+							<option value="syna">syna</option>
+							<option value="córkę">córkę</option>
+						</select>
+					</div>
+					<div class="input-group">
+						<label for="congratulations_grade">Wyniki w nauce</label>
+						<select name="congratulations_grade" id="congratulations_grade">
+							<option value="6" selected>Celujące</option>
+							<option value="5">Bardzo dobre</option>
+							<option value="4">Dobre</option>
+						</select>
+					</div>
+					<div class="input-group">
+						<label for="congratulations_behaviour">Zachowanie</label>
+						<select name="congratulations_behaviour" id="congratulations_behaviour">
+							<option value="6" selected>Wzorowe</option>
+							<option value="5">Bardzo dobre</option>
+						</select>
+					</div>
+
+					<div class="input-group">
+						<label for="congratulations_parent_name">Imiona i nazwiska rodziców</label>
+						<span>pani / panu / państwu</span>
+						<input type="text" name="congratulations_parent_name" id="congratulations_parent_name" placeholder="Janu i Joannie Nowakom">
+					</div>
+					<div class="input-group">
+						<label for="congratulations_parent_pronoun">Zaimek rodziców</label>
+						<select name="congratulations_parent_pronoun" id="congratulations_parent_pronoun">
+							<option value="pani">pani</option>
+							<option value="panu">panu</option>
+							<option value="państwu">państwu</option>
+						</select>
+					</div>
+
+					<button id="congratulations-dialog-cancel">Anuluj</button>
+					<button id="congratulations-dialog-add">Dodaj</button>
+				</div>
+
+				<div class="dialog_preview congratulations_preview">
+					<!-- Rendered with JavaScript -->
+				</div>
+			</div>
+		</dialog>
+	</div>
+	<div class="tab" data-tab="3">
+		<button id="new-commendation">Nowy list pochwalny</button>
+		<button id="download-commendations-csv">Pobierz plik CSV</button>
+		<button id="print-commendations">Wydrukuj listy pochwalne</button>
+		<p class="list-header">Lista listów pochwalnych</p>
+		<ul id="commendation_list"></ul>
+		<dialog id="commendation-dialog">
+			<div class="dialog_container">
+				<div class="dialog_inputs">
+					<input type="hidden" name="commendation_id" id="commendation_id" value="none">
+
+					<div class="input-group">
+						<label for="commendation_parent_name">Imię i nazwisko rodzica</label>
+						<input type="text" name="commendation_parent_name" id="commendation_parent_name" placeholder="Janu Nowakowi">
+					</div>
+					<div class="input-group">
+						<label for="commendation_parent_pronoun">Zaimek rodzica</label>
+						<select name="commendation_parent_pronoun" id="commendation_parent_pronoun">
+							<option value="panu">panu</option>
+							<option value="pani">pani</option>
+						</select>
+					</div>
+
+					<button id="commendation-dialog-cancel">Anuluj</button>
+					<button id="commendation-dialog-add">Dodaj</button>
+				</div>
+
+				<div class="dialog_preview commendation_preview">
+					<!-- Rendered with JavaScript -->
+				</div>
+			</div>
+		</dialog>
+	</div>
+</main>
+
+<div class="printable">
+	<p class="printable__no_content_warning">Skorzystaj z opcji "Wydrukuj" aby przygotować dyplomy do druku.</p>
+</div>
+
+<template id="list-item">
+	<li data-reward-id="null" data-congratulations-id="null" data-commendation-id="null">
+		<div class="left">
+			<span data-template="STUDENT_NAME">STUDENT_NAME </span>
+			<span data-template="PARENT_NAME">(PARENT_NAME)</span>
+		</div>
+		<div class="right">
+			<button data-template="EDIT">Edytuj</button>
+			<button data-template="DELETE">Usuń</button>
+		</div>
+	</li>
+</template>
+
+<template id="reward-template">
+	<div class="page">
+		<header>
+			<img src="./logo.png" alt="Logo II Liceum">
+			<h1>Nagroda</h1>
+		</header>
+		<main>
+			<span class="for">dla</span>
+			<h2 data-template="STUDENT_NAME">STUDENT_NAME</h2>
+			<h3 data-template="PRONOUN_CLASS">PRONOUN klasy CLASS</h3>
+			<p data-template="ACHIEVEMENTS">za ACHIEVEMENTS.</p>
+		</main>
+
+		<div class="signature">
+			<span class="signature__form_teacher">Wychowawca klasy</span>
+			<span class="signature__principal">Dyrektor szkoły</span>
+		</div>
+		<footer>Tomaszów Maz.,
+			<time>DATE</time>
+		</footer>
+	</div>
+</template>
+
+<template id="congratulations-template">
+	<div class="page congratulations_page">
+		<header>
+			<h1>LIST<br>GRATULACYJNY</h1>
+		</header>
+		<main>
+			<p>Dyrektor i Rada Pedagogiczna <br>
+				II Liceum Ogólnokształcącego <br>
+				im. Stefana Żeromskiego <br>
+				w Tomaszowie Mazowieckim</p>
+			<p>składają</p>
+			<p class="pronoun" data-template="PRONOUN_PARENT">PRONOUN_PARENT</p>
+			<h2 data-template="PARENT_NAME">PARENT_NAME</h2>
+			<p class="congratulations">serdeczne gratulacje z okazji uzyskania przez <span data-template="PRONOUN_STUDENT">PRONOUN_STUDENT</span></p>
+			<h4 data-template="STUDENT_NAME">STUDENT_NAME</h4>
+			<p><span data-template="GRADES">GRADES</span> wyników w nauce i <span data-template="BEHAVIOUR">BEHAVIOUR</span> oceny z zachowania.<br>
+				Życzymy dalszych sukcesów,<br>
+				a za trud włożony w proces wychowawczy<br>
+				serdecznie dziękujemy</p>
+		</main>
+
+		<div class="signature">
+			<span class="signature__form_teacher">Wychowawca klasy</span>
+			<span class="signature__principal">Dyrektor szkoły</span>
+		</div>
+		<footer>Tomaszów Maz.,
+			<time>DATE</time>
+		</footer>
+	</div>
+</template>
+
+<template id="commendation-template">
+	<div class="page commendation_page">
+		<header>
+			<h1>LIST<br>POCHWALNY</h1>
+		</header>
+		<main>
+			<p>Dyrektor i Rada Pedagogiczna <br>
+				II Liceum Ogólnokształcącego <br>
+				im. Stefana Żeromskiego <br>
+				w Tomaszowie Mazowieckim</p>
+			<p>składają serdeczne podziękowanie</p>
+			<p class="pronoun" data-template="PARENT_PRONOUN">PRONOUN</p>
+			<h2 data-template="PARENT_NAME">PARENT_NAME</h2>
+			<h3>za aktywną pracę na rzecz szkoły.</h3>
+		</main>
+
+		<div class="signature">
+			<span class="signature__form_teacher">Wychowawca klasy</span>
+			<span class="signature__principal">Dyrektor szkoły</span>
+		</div>
+		<footer>Tomaszów Maz.,
+			<time>DATE</time>
+		</footer>
+	</div>
+</template>
+
+<script src="./vendor/surreal.min.js"></script>
+<script src="./vendor/papaparse.min.js"></script>
+<script src="./script.js" defer></script>
+</body>
+</html>

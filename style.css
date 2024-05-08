@@ -1,0 +1,500 @@
+:root {
+	--md-primary: rgb(80 91 146);
+	--md-surface-tint: rgb(80 91 146);
+	--md-on-primary: rgb(255 255 255);
+	--md-primary-container: rgb(222 225 255);
+	--md-on-primary-container: rgb(9 22 75);
+	--md-secondary: rgb(90 93 114);
+	--md-on-secondary: rgb(255 255 255);
+	--md-secondary-container: rgb(223 225 249);
+	--md-on-secondary-container: rgb(23 26 44);
+	--md-tertiary: rgb(118 84 110);
+	--md-on-tertiary: rgb(255 255 255);
+	--md-tertiary-container: rgb(255 215 242);
+	--md-on-tertiary-container: rgb(45 18 40);
+	--md-error: rgb(186 26 26);
+	--md-on-error: rgb(255 255 255);
+	--md-error-container: rgb(255 218 214);
+	--md-on-error-container: rgb(65 0 2);
+	--md-background: rgb(251 248 255);
+	--md-on-background: rgb(27 27 33);
+	--md-surface: rgb(251 248 255);
+	--md-on-surface: rgb(27 27 33);
+	--md-surface-variant: rgb(227 225 236);
+	--md-on-surface-variant: rgb(70 70 79);
+	--md-outline: rgb(118 118 128);
+	--md-outline-variant: rgb(198 197 208);
+	--md-shadow: rgb(0 0 0);
+	--md-scrim: rgb(0 0 0);
+	--md-inverse-surface: rgb(48 48 54);
+	--md-inverse-on-surface: rgb(242 240 247);
+	--md-inverse-primary: rgb(185 195 255);
+	--md-primary-fixed: rgb(222 225 255);
+	--md-on-primary-fixed: rgb(9 22 75);
+	--md-primary-fixed-dim: rgb(185 195 255);
+	--md-on-primary-fixed-variant: rgb(56 67 121);
+	--md-secondary-fixed: rgb(223 225 249);
+	--md-on-secondary-fixed: rgb(23 26 44);
+	--md-secondary-fixed-dim: rgb(195 197 221);
+	--md-on-secondary-fixed-variant: rgb(67 70 89);
+	--md-tertiary-fixed: rgb(255 215 242);
+	--md-on-tertiary-fixed: rgb(45 18 40);
+	--md-tertiary-fixed-dim: rgb(229 186 216);
+	--md-on-tertiary-fixed-variant: rgb(93 60 85);
+	--md-surface-dim: rgb(219 217 224);
+	--md-surface-bright: rgb(251 248 255);
+	--md-surface-container-lowest: rgb(255 255 255);
+	--md-surface-container-low: rgb(245 242 250);
+	--md-surface-container: rgb(239 237 244);
+	--md-surface-container-high: rgb(233 231 239);
+	--md-surface-container-highest: rgb(227 225 233);
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Inter, -system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
+	line-height: 1.625;
+	background-color: var(--md-surface);
+	color: var(--md-on-surface);
+}
+
+.start, .printable__no_content_warning {
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.printable__no_content_warning {
+	font-size: 36pt;
+}
+
+.app-navigation {
+	background-color: var(--md-primary-container);
+	padding: .5rem 1rem;
+	font-size: 1.5rem;
+}
+
+.app-navigation nav {
+	display: flex;
+}
+
+.app-navigation a {
+	text-decoration: none;
+	color: var(--md-on-primary-container);
+	margin-right: 2rem;
+}
+
+#start-link {
+	margin-left: auto;
+	margin-right: 0;
+}
+
+.active-header-link {
+	font-weight: bold;
+}
+
+.start svg {
+	width: 64px;
+	height: 64px;
+	display: block;
+	margin: .25rem auto;
+}
+
+button, .button {
+	text-align: center;
+	border-radius: 100px;
+	background-color: var(--md-primary);
+	border: none;
+	color: var(--md-on-primary);
+	padding: 10px 24px;
+	font-weight: 500;
+	font-family: inherit;
+	font-size: 1rem;
+	text-decoration: none;
+	height: min-content;
+	display: inline-block;
+	box-sizing: border-box;
+	line-height: normal;
+}
+
+.start button, .start .button {
+	border-radius: 12px;
+	width: 144px;
+	height: 144px;
+}
+
+.quick-start {
+	display: flex;
+	justify-content: space-around;
+	margin: 2rem 0;
+}
+
+button:disabled, .button:disabled {
+	background-color: color-mix(in srgb, var(--md-on-surface) 12%, transparent);
+	color: var(--md-on-surface);
+}
+
+.tab {
+	display: none;
+	padding: 1.5rem;
+}
+
+.list-header {
+	font-size: 1.75rem;
+	font-weight: 600;
+}
+
+
+dialog {
+	border-radius: 1.75rem;
+	background: var(--md-surface-container);
+	color: inherit;
+	border: none;
+	padding: 1.5rem;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+.dialog_container {
+	display: flex;
+	gap: 4rem;
+}
+
+.input-group label {
+	display: block;
+}
+
+.input-group {
+	margin-bottom: .5rem;
+}
+
+input {
+	display: block;
+	border-radius: 4px;
+	border: 1px solid var(--md-outline);
+	padding: 8px 0 8px 16px;
+	width: 100%;
+	margin-bottom: 1rem;
+	font-family: inherit;
+	background-color: var(--md-surface);
+	box-sizing: border-box;
+}
+
+select {
+	border-radius: 4px;
+	border: 1px solid var(--md-outline);
+	padding: 8px 0 8px 16px;
+	width: 100%;
+	margin-bottom: 1rem;
+	font-family: inherit;
+	background-color: var(--md-surface);
+	color: inherit;
+	box-sizing: border-box;
+}
+
+.dialog_preview {
+	background-color: white;
+	aspect-ratio: 210 / 297;
+	width: 568px;
+	font-family: "Liberation Serif", "Times New Roman", serif;
+	color: #001665;
+	text-align: center;
+}
+
+.dialog_preview h1 {
+	font-size: 32pt;
+	margin-left: 2rem;
+}
+
+.dialog_preview header, .printable header {
+	display: flex;
+	width: min-content;
+	margin: 0 auto 2rem;
+}
+
+.printable h1 {
+	font-size: 5rem;
+	margin-left: 3rem;
+}
+
+.dialog_preview img {
+	width: 128px;
+	height: 128px;
+}
+
+.dialog_preview .page {
+	border: .5rem double #001665;
+	padding: 2rem;
+	margin: 2rem 2rem 0;
+	height: calc(100% - 4.5rem);
+	box-sizing: border-box;
+	position: relative;
+}
+
+.dialog_preview [data-template="STUDENT_NAME"] {
+	font-size: 28pt;
+	margin: 0;
+}
+
+.dialog_preview .signature, .printable .signature {
+	position: absolute;
+	display: flex;
+	justify-content: space-between;
+}
+
+.dialog_preview .signature {
+	width: calc(100% - 4.5rem);
+	bottom: 5rem;
+}
+
+.congratulations_preview h1, .printable .congratulations_page h1, .commendation_preview h1, .printable .commendation_page h1 {
+	margin: 0;
+}
+
+.congratulations_preview header, .printable .congratulations_page header {
+	margin-bottom: 0;
+}
+
+.congratulations_preview .page, .printable .congratulations_page {
+	font-size: .75rem;
+}
+
+.congratulations_preview .pronoun, .printable .congratulations_page .pronoun, .commendation_preview .pronoun, .printable .commendation_page .pronoun {
+	margin: 0;
+}
+
+.congratulations_preview h2 {
+	margin: 0;
+	font-size: 1.5rem;
+}
+
+.commendation_preview h2 {
+	margin: 0;
+	font-size: 2rem;
+}
+
+.printable .congratulations_page h2 {
+	margin: 0;
+	font-size: 3rem;
+}
+
+.printable .commendation_page h2 {
+	margin: 0;
+	font-size: 4rem;
+}
+
+.congratulations_preview h4 {
+	font-size: 1.5rem;
+	margin: 0;
+}
+
+.printable .congratulations_page h4 {
+	font-size: 3rem;
+	margin: 0;
+}
+
+.commendation_preview h3, .printable .commendation_page h3 {
+	margin-top: 0;
+}
+
+.congratulations_preview .congratulations, .printable .congratulations_page .congratulations {
+	margin: .5rem 0;
+}
+
+.congratulations_preview .signature {
+	bottom: 4rem;
+}
+
+.printable .signature {
+	width: calc(100% - 4.5rem);
+	bottom: 35mm;
+}
+
+.printable .page:first-of-type .signature {
+	width: calc(100% - 10rem);
+}
+
+.printable h2 {
+	font-size: 3rem;
+}
+
+.dialog_preview footer, .printable footer {
+	position: absolute;
+	bottom: 1rem;
+	left: 0;
+	right: 0;
+}
+
+.printable .page:first-of-type footer {
+	bottom: 3.5rem;
+}
+
+.printable .page {
+	width: calc(100vw - 4rem);
+	height: calc(100vh - 4rem);
+	border: .5rem double #001665;
+	padding: 2rem;
+	margin: 2rem 2rem;
+	box-sizing: border-box;
+	background-color: white;
+	aspect-ratio: 210 / 297;
+	font-family: "Liberation Serif", "Times New Roman", serif;
+	color: #001665;
+	text-align: center;
+	font-size: 16pt;
+}
+
+.printable .page:not(:first-of-type) {
+	top: 2rem;
+	position: relative;
+}
+
+.printable img {
+	width: 180px;
+	height: 180px;
+}
+
+ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+ul li {
+	background-color: var(--md-surface-container);
+	margin: .75rem 0;
+	padding: .5rem 1rem;
+	border-radius: 12px;
+	border: 1px solid var(--md-surface-container-highest);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+ul li .right {
+	display: flex;
+	gap: 1rem;
+}
+
+.printable {
+	display: none;
+}
+
+/* media queries & fonts */
+
+@media print {
+	body > header, body > main {
+		display: none;
+	}
+
+	.printable {
+		display: block;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--md-primary: rgb(185 195 255);
+		--md-surface-tint: rgb(185 195 255);
+		--md-on-primary: rgb(33 44 97);
+		--md-primary-container: rgb(56 67 121);
+		--md-on-primary-container: rgb(222 225 255);
+		--md-secondary: rgb(195 197 221);
+		--md-on-secondary: rgb(44 47 66);
+		--md-secondary-container: rgb(67 70 89);
+		--md-on-secondary-container: rgb(223 225 249);
+		--md-tertiary: rgb(229 186 216);
+		--md-on-tertiary: rgb(68 38 62);
+		--md-tertiary-container: rgb(93 60 85);
+		--md-on-tertiary-container: rgb(255 215 242);
+		--md-error: rgb(255 180 171);
+		--md-on-error: rgb(105 0 5);
+		--md-error-container: rgb(147 0 10);
+		--md-on-error-container: rgb(255 218 214);
+		--md-background: rgb(18 19 24);
+		--md-on-background: rgb(227 225 233);
+		--md-surface: rgb(18 19 24);
+		--md-on-surface: rgb(227 225 233);
+		--md-surface-variant: rgb(70 70 79);
+		--md-on-surface-variant: rgb(198 197 208);
+		--md-outline: rgb(144 144 154);
+		--md-outline-variant: rgb(70 70 79);
+		--md-shadow: rgb(0 0 0);
+		--md-scrim: rgb(0 0 0);
+		--md-inverse-surface: rgb(227 225 233);
+		--md-inverse-on-surface: rgb(48 48 54);
+		--md-inverse-primary: rgb(80 91 146);
+		--md-surface-dim: rgb(18 19 24);
+		--md-surface-bright: rgb(56 57 63);
+		--md-surface-container-lowest: rgb(13 14 19);
+		--md-surface-container-low: rgb(27 27 33);
+		--md-surface-container: rgb(31 31 37);
+		--md-surface-container-high: rgb(41 42 47);
+		--md-surface-container-highest: rgb(52 52 58);
+	}
+
+	a {
+		color: lightblue;
+	}
+
+	.payment-students a {
+		color: white;
+	}
+
+	textarea, input, select {
+		background-color: #322F35;
+		border: 1px solid #4A4458;
+		color: white;
+	}
+}
+
+/* inter-300 - latin */
+@font-face {
+	font-display: swap;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 300;
+	src: url("/fonts/inter-v13-latin-ext-300.woff2") format("woff2");
+}
+
+/* inter-regular - latin */
+@font-face {
+	font-display: swap;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 400;
+	src: url("/fonts/inter-v13-latin-ext-regular.woff2") format("woff2");
+}
+
+/* inter-500 - latin */
+@font-face {
+	font-display: swap;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 500;
+	src: url("/fonts/inter-v13-latin-ext-500.woff2") format("woff2");
+}
+
+/* inter-600 - latin */
+@font-face {
+	font-display: swap;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 600;
+	src: url("/fonts/inter-v13-latin-ext-600.woff2") format("woff2");
+}
+
+/* inter-700 - latin */
+@font-face {
+	font-display: swap;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 700;
+	src: url("/fonts/inter-v13-latin-ext-700.woff2") format("woff2");
+}
