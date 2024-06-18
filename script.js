@@ -339,6 +339,10 @@ function updateRewardTemplate(template, options) {
 		achievementsText += "udział w promocji szkoły,<br>"
 	}
 
+	if (options.attendance === "yes") {
+		achievementsText += "100% frekwencję,<br>"
+	}
+
 	switch (options.contests) {
 		case "both":
 			achievementsText += "udział w olimpiadach i konkursach,<br>"
@@ -451,6 +455,7 @@ any("#reward-dialog .input-group").on("input", () => {
 		bearer: me("#reward_bearer").value,
 		promotion: me("#reward_promotion").value,
 		contests: me("#reward_contests").value,
+		attendance: me("#reward_attendance").value,
 	});
 });
 
