@@ -326,7 +326,7 @@ function updateRewardTemplate(template, options) {
 		case "school":
 			achievementsText += "pracę na rzecz szkoły,<br>"
 			break;
-		case "klasy":
+		case "class":
 			achievementsText += "pracę na rzecz klasy,<br>"
 			break;
 	}
