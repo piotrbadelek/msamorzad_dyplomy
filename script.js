@@ -298,7 +298,7 @@ function updateRewardTemplate(template, options) {
 	template.querySelector(`[data-template="PRONOUN_CLASS"]`).innerText = `${options.pronoun} klasy ${options.class}`;
 	let achievementsText = "za ";
 
-	switch (options.grade) {
+	switch (+options.grade) {
 		case 6:
 			achievementsText += "celujące wyniki w nauce,<br>"
 			break;
@@ -310,7 +310,7 @@ function updateRewardTemplate(template, options) {
 			break;
 	}
 
-	switch (options.behaviour) {
+	switch (+options.behaviour) {
 		case 6:
 			achievementsText += "wzorowe zachowanie,<br>"
 			break;
