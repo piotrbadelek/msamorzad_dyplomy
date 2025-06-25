@@ -410,13 +410,15 @@ function updateCongratulationsTemplate(template, options) {
 
 	template.querySelector(`[data-template="BEHAVIOUR"]`).innerText = behaviour ?? "";
 	template.querySelector(`[data-template="GRADES"]`).innerText = grades ?? "";
-	template.querySelector("time").innerText = me("#print_date").value;
+	//template.querySelector("time").innerText = me("#print_date").value;
+	template.querySelector("time").innerText = "27 czerwca 2025";
 }
 
 function updateCommendationTemplate(template, options) {
 	template.querySelector(`[data-template="PARENT_NAME"]`).innerText = options.parent_name;
 	template.querySelector(`[data-template="PARENT_PRONOUN"]`).innerText = options.pronoun_parent;
-	template.querySelector("time").innerText = me("#print_date").value;
+	//template.querySelector("time").innerText = me("#print_date").value;
+	template.querySelector("time").innerText = "27 czerwca 2025";
 }
 
 function scaleCongratulationsTemplateText(text, print = false) {
