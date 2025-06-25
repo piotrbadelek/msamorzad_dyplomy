@@ -370,7 +370,8 @@ function updateRewardTemplate(template, options) {
 	}
 
 	template.querySelector(`[data-template="ACHIEVEMENTS"]`).innerHTML = achievementsText;
-	template.querySelector("time").innerText = me("#print_date").value;
+	//template.querySelector("time").innerText = me("#print_date").value;
+	template.querySelector("time").innerText = "27 czerwca 2025";
 }
 
 function measureTextWidth(text) {
